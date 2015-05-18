@@ -1,8 +1,41 @@
-﻿<Window x:Class="Calculadora.MainWindow"
+﻿<Window
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="MainWindow" Height="350" Width="525">
-    <Grid>
-        
+        xmlns:local="clr-namespace:Calculadora" x:Name="Calculadora" x:Class="Calculadora.MainWindow"
+        Title="Calculadora" Height="320" Width="480" MinWidth="480" MinHeight="320" WindowStartupLocation="CenterScreen">
+    <Grid Background="#FF1A4066">
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Label x:Name="labelDisplay" Content="0" Margin="0" FontFamily="Roboto Cn" FontSize="{DynamicResource FontSizeDisplay}" FontWeight="Bold" Grid.ColumnSpan="6" BorderBrush="#FF531D1D" BorderThickness="2" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" Background="{DynamicResource BrushDisplay}" />
+        <Button x:Name="button1" Content="1" Margin="{DynamicResource ThicknessNumberButtons}" Grid.Row="1" Grid.Column="0" FontFamily="Roboto Bk" FontSize="{DynamicResource FontSizeButtons}" FontWeight="Bold" Background="{DynamicResource BrushNumberButtons}" Click="button_Click" Tag="Digit_1" Focusable="False" />
+        <Button x:Name="button2" Content="2" Margin="{DynamicResource ThicknessNumberButtons}" Grid.Row="1" Grid.Column="1" FontFamily="Roboto Bk" FontSize="{DynamicResource FontSizeButtons}" FontWeight="Bold" Background="{DynamicResource BrushNumberButtons}" Click="button_Click" Tag="Digit_2" Focusable="False" />
+        <Button x:Name="button3" Content="3" Margin="{DynamicResource ThicknessNumberButtons}" Grid.Row="1" Grid.Column="2" FontFamily="Roboto Bk" FontSize="{DynamicResource FontSizeButtons}" FontWeight="Bold" Background="{DynamicResource BrushNumberButtons}" Click="button_Click" Tag="Digit_3" Focusable="False" />
+        <Button x:Name="button4" Content="4" Margin="{DynamicResource ThicknessNumberButtons}" Grid.Row="2" Grid.Column="0" FontFamily="Roboto Bk" FontSize="{DynamicResource FontSizeButtons}" FontWeight="Bold" Background="{DynamicResource BrushNumberButtons}" Click="button_Click" Tag="Digit_4" Focusable="False" />
+        <Button x:Name="button5" Content="5" Margin="{DynamicResource ThicknessNumberButtons}" Grid.Row="2" Grid.Column="1" FontFamily="Roboto Bk" FontSize="{DynamicResource FontSizeButtons}" FontWeight="Bold" Background="{DynamicResource BrushNumberButtons}" Click="button_Click" Tag="Digit_5" Focusable="False" />
+        <Button x:Name="button6" Content="6" Margin="{DynamicResource ThicknessNumberButtons}" Grid.Row="2" Grid.Column="2" FontFamily="Roboto Bk" FontSize="{DynamicResource FontSizeButtons}" FontWeight="Bold" Background="{DynamicResource BrushNumberButtons}" Click="button_Click" Tag="Digit_6" Focusable="False" />
+        <Button x:Name="button7" Content="7" Margin="{DynamicResource ThicknessNumberButtons}" Grid.Row="3" Grid.Column="0" FontFamily="Roboto Bk" FontSize="{DynamicResource FontSizeButtons}" FontWeight="Bold" Background="{DynamicResource BrushNumberButtons}" Click="button_Click" Tag="Digit_7" Focusable="False" />
+        <Button x:Name="button8" Content="8" Margin="{DynamicResource ThicknessNumberButtons}" Grid.Row="3" Grid.Column="1" FontFamily="Roboto Bk" FontSize="{DynamicResource FontSizeButtons}" FontWeight="Bold" Background="{DynamicResource BrushNumberButtons}" Click="button_Click" Tag="Digit_8" Focusable="False" />
+        <Button x:Name="button9" Content="9" Margin="{DynamicResource ThicknessNumberButtons}" Grid.Row="3" Grid.Column="2" FontFamily="Roboto Bk" FontSize="{DynamicResource FontSizeButtons}" FontWeight="Bold" Background="{DynamicResource BrushNumberButtons}" Click="button_Click" Tag="Digit_9" Focusable="False" />
+        <Button x:Name="button0" Content="0" Margin="{DynamicResource ThicknessNumberButtons}" Grid.Row="4" Grid.Column="1" FontFamily="Roboto Bk" FontSize="{DynamicResource FontSizeButtons}" FontWeight="Bold" Background="{DynamicResource BrushNumberButtons}" Click="button_Click" Tag="Digit_0" Focusable="False" />
+        <Button x:Name="buttonDecimalSeparator" Content="." Margin="{DynamicResource ThicknessNumberButtons}" Grid.Row="4" Grid.Column="2" FontFamily="Roboto Bk" FontSize="{DynamicResource FontSizeButtons}" FontWeight="Bold" Background="{DynamicResource BrushNumberButtons}" Click="button_Click" Tag="Decimal_Separator"  Focusable="False" />
+        <Button x:Name="buttonMais" Content="+" Margin="{DynamicResource ThicknessNumberButtons}" Grid.Row="1" Grid.Column="3" FontFamily="Roboto Bk" FontSize="{DynamicResource FontSizeButtons}" FontWeight="Bold" Background="{DynamicResource BrushOperationsButtons}" Click="button_Click" Tag="Operation_Plus"  Focusable="False" />
+        <Button x:Name="buttonMenos" Content="-" Margin="{DynamicResource ThicknessNumberButtons}" Grid.Row="2" Grid.Column="3" FontFamily="Roboto Bk" FontSize="{DynamicResource FontSizeButtons}" FontWeight="Bold" Background="{DynamicResource BrushOperationsButtons}" Click="button_Click" Tag="Operation_Minus"  Focusable="False" />
+        <Button x:Name="buttonVezes" Content="*" Margin="{DynamicResource ThicknessNumberButtons}" Grid.Row="3" Grid.Column="3" FontFamily="Roboto Bk" FontSize="{DynamicResource FontSizeButtons}" FontWeight="Bold" Background="{DynamicResource BrushOperationsButtons}" Click="button_Click" Tag="Operation_Multiply"  Focusable="False" />
+        <Button x:Name="buttonDividir" Content="/" Margin="{DynamicResource ThicknessNumberButtons}" Grid.Row="4" Grid.Column="3" FontFamily="Roboto Bk" FontSize="{DynamicResource FontSizeButtons}" FontWeight="Bold" Background="{DynamicResource BrushOperationsButtons}" Click="button_Click" Tag="Operation_Divide"  Focusable="False" />
+        <Button x:Name="buttonIgual" Content="=" Margin="{DynamicResource ThicknessNumberButtons}" Grid.Row="3" Grid.Column="4" Grid.RowSpan="2" FontFamily="Roboto Bk" FontSize="{DynamicResource FontSizeButtons}" FontWeight="Bold" Background="{DynamicResource BrushOperationsButtons}" Click="button_Click" Tag="Operation_Equal" Focusable="False" />
+        <Button x:Name="buttonLimpa" Content="C" Margin="{DynamicResource ThicknessNumberButtons}" Grid.Row="2" Grid.Column="4" Grid.RowSpan="1" FontFamily="Roboto Bk" FontSize="{DynamicResource FontSizeButtons}" FontWeight="Bold" Background="{DynamicResource BrushClearingOperationsButtons}" Click="button_Click" Tag="Operation_Clear"  Focusable="False" />
+        <Button x:Name="buttonLimpaTudo" Content="AC" Margin="{DynamicResource ThicknessNumberButtons}" Grid.Row="1" Grid.Column="4" Grid.RowSpan="1" FontFamily="Roboto Bk" FontSize="{DynamicResource FontSizeButtons}" FontWeight="Bold" Background="{DynamicResource BrushClearingOperationsButtons}" Click="button_Click" Tag="Operation_ClearAll"  Focusable="False" />
     </Grid>
 </Window>

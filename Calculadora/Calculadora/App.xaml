@@ -1,8 +1,35 @@
-﻿<Application x:Class="Calculadora.App"
+﻿<Application
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:System="clr-namespace:System;assembly=mscorlib" x:Class="Calculadora.App"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+
+        <LinearGradientBrush x:Key="BrushNumberButtons" EndPoint="0,1" StartPoint="0,0">
+            <GradientStop Color="#FFE9F6FB" Offset="0"/>
+            <GradientStop Color="#FFC6DFE8" Offset="0.5"/>
+            <GradientStop Color="#FF9DD6EC" Offset="1"/>
+        </LinearGradientBrush>
+
+        <LinearGradientBrush x:Key="BrushOperationsButtons" EndPoint="0,1" StartPoint="0,0">
+            <GradientStop Color="#FFFFC060" Offset="0"/>
+            <GradientStop Color="#FFFFC080" Offset="0.5"/>
+            <GradientStop Color="#FFFFC040" Offset="1"/>
+        </LinearGradientBrush>
+
+        <LinearGradientBrush x:Key="BrushClearingOperationsButtons" EndPoint="0,1" StartPoint="0,0">
+            <GradientStop Color="#FFFF8080" Offset="0"/>
+            <GradientStop Color="#FFFFA0A0" Offset="0.5"/>
+            <GradientStop Color="#FFFF6060" Offset="1"/>
+        </LinearGradientBrush>
+
+        <System:Double x:Key="FontSizeButtons">28</System:Double>
+        <Thickness x:Key="ThicknessNumberButtons">3</Thickness>
+        <LinearGradientBrush x:Key="BrushDisplay" EndPoint="0.5,1" StartPoint="0.5,0">
+            <GradientStop Color="#FFF5F2E7" Offset="0"/>
+            <GradientStop Color="#FFE8E0C0" Offset="1"/>
+        </LinearGradientBrush>
+        <System:Double x:Key="FontSizeDisplay">36</System:Double>
+
     </Application.Resources>
 </Application>

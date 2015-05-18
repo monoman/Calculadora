@@ -1,17 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+using BasicCalculator;
 
 namespace Calculadora
 {
@@ -23,6 +15,26 @@ namespace Calculadora
 		public MainWindow()
 		{
 			InitializeComponent();
+		}
+
+		private readonly CalculatorCore _core = new CalculatorCore();
+
+		public CalculatorCore Core
+		{
+			get { return _core; }
+		} 
+
+
+		private void button_Click(object sender, RoutedEventArgs e)
+		{
+			try {
+				var button = (FrameworkElement)sender;
+				_core.Process((ValidInputs)Enum.Parse(typeof(ValidInputs), (string)button.Tag));
+				labelDisplay.Content = _core.ValueToDisplay;
+			} catch (Exception ex) {
+				Debug.WriteLine(ex);
+				labelDisplay.Content = "Error";
+			}
 		}
 	}
 }
