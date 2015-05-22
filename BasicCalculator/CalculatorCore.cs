@@ -75,6 +75,10 @@ namespace BasicCalculator
 					StackOperation(input);
 					break;
 
+				case ValidInputs.Operation_InvertSign:
+					_currentValue = -_currentValue;
+					break;
+
 				case ValidInputs.Operation_Equal:
 					PerformPendingOperation();
 					break;
